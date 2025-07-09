@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import uuid
 
@@ -76,6 +76,11 @@ def send_message():
 def get_messages(username):
     user_messages = messages.pop(username, [])
     return jsonify({'messages': user_messages}), 200
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 
 
 if __name__ == '__main__':

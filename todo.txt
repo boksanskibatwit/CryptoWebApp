@@ -1,0 +1,49 @@
+### 1. **Use Argon2 for Secure Password Hashing (Backend)**
+
+* Right now you're just using `btoa()` in JS and comparing plain hashes.
+* Use `argon2-cffi` in Python to securely hash and verify passwords.
+* Update the `/register` and `/login` routes to use Argon2.
+
+---
+
+### 2. **Add Persistent Storage (Database or Flat File)**
+
+* Currently using in-memory Python dictionaries (`users`, `messages`, etc.), which are lost on server restart.
+* Add SQLite or a simple file-based system to store:
+
+  * Users + password hashes
+  * Public keys
+  * Encrypted messages
+
+---
+
+### 3. **Add Pre-Key or Queued Messaging for Offline Users (Optional)**
+
+* Your essay mentions “pre-keys” and asynchronous delivery.
+* Right now you store messages while the recipient is offline, but no pre-keys are used.
+* You could:
+
+  * Let users upload a batch of one-time-use public pre-keys.
+  * When a message is sent, use one of these pre-keys to encrypt, allowing delivery without waiting for both users to be online.
+
+---
+
+### 4. **Add Security Best Practices for Web Deployment**
+
+* Your essay mentions securing against XSS, session hijacking, etc.
+* Current Flask app is wide open and basic — you should:
+
+  * Force HTTPS (e.g., behind nginx with TLS cert)
+  * Use secure session tokens (e.g., JWT or cookie-based auth if you expand)
+  * Sanitize frontend inputs (basic XSS protection)
+  * Disable debug mode in production
+
+---
+
+### Bonus Improvements (Optional)
+
+* Add timestamps to messages
+* Add logout button (just clears state on frontend)
+* Style the app with CSS or Bootstrap
+* Show message history instead of clearing it on refresh
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Chat</title>
+    <script src="https://cdn.jsdelivr.net/npm/tweetnacl@1.0.3/nacl.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tweetnacl-util@0.15.1/nacl-util.min.js"></script>
+</head>
+<body>
+    <h2>Secure Messaging App</h2>
+
+    <h3>Register / Login</h3>
+    <input id="username" placeholder="Username"><br>
+    <input id="password" type="password" placeholder="Password"><br>
+    <button onclick="register()">Register</button>
+    <button onclick="login()">Login</button>
+
+    <hr>
+
+    <h3>Send Message</h3>
+    <input id="recipient" placeholder="Recipient"><br>
+    <textarea id="message" placeholder="Message"></textarea><br>
+    <button onclick="sendMessage()">Send Encrypted</button>
+
+    <hr>
+
+    <h3>Messages</h3>
+    <button onclick="getMessages()">Refresh</button>
+    <div id="messages"></div>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>

@@ -15,12 +15,12 @@ function hashPassword(password) {
  */
 function register() {
     const username = document.getElementById('username').value;
-    const password = hashPassword(document.getElementById('password').value);
+    const password = document.getElementById('password').value;
 
     fetch('/register', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({username, password_hash: password})
+        body: JSON.stringify({username, password})
     }).then(r => r.json())
       .then(data => alert(JSON.stringify(data)));
 }
@@ -31,13 +31,13 @@ function register() {
  */
 function login() {
     const username = document.getElementById('username').value;
-    const password = hashPassword(document.getElementById('password').value);
+    const password = document.getElementById('password').value;
     currentUser = username;
 
     fetch('/login', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({username, password_hash: password})
+        body: JSON.stringify({username, password})
     }).then(res => {
         if (res.ok) {
             // Generate keypair after successful login

@@ -1,2 +1,4 @@
 flask
 flask-cors
+PyNaCl
+argon2-cffi

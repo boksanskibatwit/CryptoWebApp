@@ -1,11 +1,6 @@
-### 1 **Add Persistent Storage (Database or Flat File)**
+### 1 **Add Persistent Storage (Database)**
 
-* Currently using in-memory Python dictionaries (`users`, `messages`, etc.), which are lost on server restart.
-* Add SQLite or a simple file-based system to store:
-
-  * Users + password hashes
-  * Public keys
-  * Encrypted messages
+unsabel to view messages on relog
 
 ### 2. **Add Security Best Practices for Web Deployment**
 
@@ -23,5 +18,4 @@
 
 * Add timestamps to messages
 * Add logout button (just clears state on frontend)
-* Show message history instead of clearing it on refresh
 
